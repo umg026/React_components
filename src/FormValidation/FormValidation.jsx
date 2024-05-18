@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 
 export default function FormValidation() {
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({ // state For FormData
         username: "",
         email: "",
         password: ""
     })
-    const [errors, setErrors] = useState({
+    const [errors, setErrors] = useState({ // State For Error
         username: "",
         email: "",
         password: ""
@@ -16,6 +16,7 @@ export default function FormValidation() {
     const handelChnage = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
+    // Validation
     function validation() {
         let isValid = true;
         let errors = {};
@@ -41,10 +42,10 @@ export default function FormValidation() {
 
     const handelSubmit = (e) => {
         e.preventDefault()
-          if (validation()) {
-            
-              console.log(formData);
-          }
+        if (validation()) {
+
+            console.log(formData);
+        }
     }
 
     return (
@@ -58,12 +59,12 @@ export default function FormValidation() {
                 <div>
                     <label htmlFor="">Email :</label>
                     <input type="email" value={formData.email} onChange={handelChnage} name='email' placeholder='enter ' />
-                   {errors.email && <p style={{color:'red'}}> {errors.email}</p>}
+                    {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
                 </div>
                 <div>
                     <label htmlFor="">Pass  word :</label>
                     <input type="password" value={formData.password} onChange={handelChnage} name='password' placeholder='enter ' />
-                    {errors.password && <p style={{color:'red'}}> {errors.password}</p>}
+                    {errors.password && <p style={{ color: 'red' }}> {errors.password}</p>}
 
                 </div>
                 <button type='submit'>Submit </button>
