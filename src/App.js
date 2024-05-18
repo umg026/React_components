@@ -8,8 +8,8 @@ import Search from "./Searching_func/Search";
 function App() {
   return (
     <>
-    <Search/>
-    {/* <UseFormik/> */}
+      {/* <Search/> // searhcing functionalities */}
+      <UseFormik/>  // useFormik Hook
       {/* <TextEditor /> // Text Editor  */}
       {/* <ImageUpload /> // upload image */}
 

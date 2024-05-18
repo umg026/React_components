@@ -1,8 +1,28 @@
 import { useFormik } from 'formik'
 import React from 'react'
+import { loginShema } from './schema';
+import { toast } from 'react-toastify';
 
+const initialValues = {
+    username: "",
+    email: "",
+    password: "",
+    confrim_password: ""
+}
 
 export default function UseFormik() {
+    const { errors, handleSubmit, touched, handleChange, values, handleBlur } = useFormik({
+
+        initialValues: initialValues,
+        validationSchema: loginShema,
+        onSubmit: (value ,action) => {
+            console.log(value);
+            toast.success("form submit")
+            action.resetForm()
+        }
+    })
+
+
     return (
         <>
             {/* component */}
@@ -105,19 +125,39 @@ export default function UseFormik() {
                         {/* <div className="mt-4 text-sm text-gray-600 text-center">
                             <p>or with email</p>
                         </div> */}
-                        <form action="#" method="POST" className="space-y-4 mt-5" >
+                        <form method="POST" className="space-y-4 mt-5" onSubmit={handleSubmit}>
                             {/* Your form elements go here */}
                             <div>
                                 <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
-                                <input type="text" id="username" name="username" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                <input type="text" id="username"
+                                    value={values.username} onChange={handleChange} onBlur={handleBlur}
+                                    name="username" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                {errors.username && touched.username ? <p className='text-red-500'>{errors.username}</p>
+                                    : null}
                             </div>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="text" id="email" name="email" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                <input type="email" id="email"
+                                    value={values.email} onChange={handleChange} onBlur={handleBlur}
+                                    name="email" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                {errors.email && touched.email ? <p className='text-red-500'>{errors.email}</p>
+                                    : null}
                             </div>
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-                                <input type="password" id="password" name="password" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                <input type="password" id="password"
+                                    value={values.password} onChange={handleChange} onBlur={handleBlur}
+                                    name="password" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                {errors.password && touched.password ? <p className='text-red-500'>{errors.password}</p>
+                                    : null}
+                            </div>
+                            <div>
+                                <label htmlFor="confrim_password" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+                                <input type="password" id="confrim_password"
+                                    value={values.confrim_password} onChange={handleChange} onBlur={handleBlur}
+                                    name="confrim_password" className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                {errors.confrim_password && touched.confrim_password ? <p className='text-red-500'>{errors.confrim_password}</p>
+                                    : null}
                             </div>
                             <div>
                                 <button type="submit" className="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black  focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Sign Up</button>
