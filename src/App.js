@@ -5,6 +5,7 @@ import Form from "./Practice/Form";
 import TextEditor from "./RichTextEditor/TextEditor";
 import Search from "./Searching_func/Search";
 import Markdown from "./markdown/Markdown";
+import Home from "./useContext/Home";
 
 // import Main from './useTransition/Main';
 function App() {
@@ -14,7 +15,8 @@ function App() {
         // practice form 
         // <Form/>
       }
-      <Markdown/>
+      <Home/>
+      {/* <Markdown/> convert markdown in text */}
       {/* <Search/> // searhcing functionalities */}
       {/* <UseFormik/>  // useFormik Hook */}
       {/* <TextEditor /> // Text Editor  */}
