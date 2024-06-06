@@ -9,7 +9,7 @@ const initialValues = {
     password: "",
     confrim_password: ""
 }
-
+ // if you want validation only in submit then ignore the handelblur
 export default function UseFormik() {
     const { errors, handleSubmit, touched, handleChange, values, handleBlur } = useFormik({
 

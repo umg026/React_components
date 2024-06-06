@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import MarkDown from 'markdown-to-jsx'
-
+import redame from './readme.md'
 
 function Markdown() {
   // Run This Cammand  :  npm i --save markdown-to-jsx
-  const file_name = 'readme.md'
   const [post, setPost] = useState("")
 
   useEffect(() => {
-    import(`./${file_name}`) // import Link Or External Link
+    fetch(redame)
       .then(res => {
-        fetch(res.default)
-          .then(res => res.text())
-          .then(res => setPost(res))
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.text();
       })
-      .catch(err => console.log(err))
+      .then(text => setPost(text))
+      .catch(err => console.log(err));
 
   }, [])
 
@@ -24,7 +25,7 @@ function Markdown() {
       <MarkDown>
         {post}
       </MarkDown>
-{/* 
+      {/* 
       {/ <Dashboard_table /> /}
       {/ <Markdown /> /} */}
     </div>

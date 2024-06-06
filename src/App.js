@@ -1,4 +1,5 @@
 // import FormValidation from './FormValidation/FormValidation';
+import DragDrop from "./Drag&Drop/Drag_and_Drop_file";
 import UseFormik from "./Formik_Yup_validation/UseFormik";
 import ImageUpload from "./ImageUpload/ImageUpload";
 import Form from "./Practice/Form";
@@ -13,12 +14,14 @@ function App() {
     <>
       {
         // practice form 
-        // <Form/>
+        <Form/>
       }
-      <Home/>
+       {/* <DragDrop/> */}
+
+      {/* <Home/> UseContext Data Pass */}
       {/* <Markdown/> convert markdown in text */}
       {/* <Search/> // searhcing functionalities */}
-      {/* <UseFormik/>  // useFormik Hook */}
+      {/* <UseFormik/>  // useFormik Hook  */}
       {/* <TextEditor /> // Text Editor  */}
       {/* <ImageUpload /> // upload image */}
 
