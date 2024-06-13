@@ -33,24 +33,28 @@ function Editor() {
 
     return (
         <>
-            <JoditEditor
-                ref={editor}
-                value={htmlContent}
-                onChange={newContent => {
-                    const updatedMarkdown = marked(newContent);
-                    setContent(updatedMarkdown);
-                }}
-            />
-
-            <hr />
-            <div className='border mt-10 border-black'>
-                <div className='p-2'>
-                    Preview:
-                </div>
-                <div className='p-2'>
-                    {parse(htmlContent)}
+            <div className="flex gap-2">
+                <JoditEditor
+                    ref={editor}
+                    value={htmlContent}
+                    onChange={newContent => {
+                        const updatedMarkdown = marked(newContent);
+                        setContent(updatedMarkdown);
+                    }}
+                />
+                <div className='border mt-10 border-black'>
+                    <div className='p-2'>
+                        Preview:
+                    </div>
+                    <div className='p-2'>
+                        {parse(htmlContent)}
+                    </div>
                 </div>
             </div>
+
+
+            <button>Submit</button>
+
         </>
     );
 }

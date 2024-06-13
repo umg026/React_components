@@ -16,7 +16,7 @@ React is a popular JavaScript library for building user interfaces, particularly
 
 Here's a simple example of a React component:
 
-```jsx
+```js
 import React from 'react';
 
 function HelloWorld() {
@@ -30,3 +30,4 @@ function HelloWorld() {
 }
 
 export default HelloWorld;
+```

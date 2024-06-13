@@ -4,6 +4,7 @@ import UseFormik from "./Formik_Yup_validation/UseFormik";
 import ImageUpload from "./ImageUpload/ImageUpload";
 import Form from "./Practice/Form";
 import Search from "./Searching_func/Search";
+import UpdateDataForm from "./Trash";
 import Editor from "./editor+markdowon/Editor";
 import Markdown from "./markdown/Markdown";
 import Home from "./useContext/Home";
@@ -17,7 +18,8 @@ function App() {
         // <Form/>
       }
       {/* <DragDrop/> */}
-      <Editor />
+      {/* <Editor /> */}
+      <UpdateDataForm/>
 
       {/* <Home/> UseContext Data Pass */}
       {/* <Markdown/> convert markdown in text */}
