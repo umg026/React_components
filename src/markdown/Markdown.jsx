@@ -25,9 +25,7 @@ function Markdown() {
       <MarkDown>
         {post}
       </MarkDown>
-      {/* 
-      {/ <Dashboard_table /> /}
-      {/ <Markdown /> /} */}
+  
     </div>
   )
 }
